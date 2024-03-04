@@ -101,30 +101,6 @@ The state file is used to cleanup created routes when:
 * IP Addresses change
 * Interface ID Changes
 
-## WSL Configuration
-Note, you may also need to configure DNS manually in the WSL2 guest. For Ubuntu proceed as follows:
-
-1. edit /etc/resolv.conf to contain:
-   ```
-   nameserver a.b.c.d
-   ```
-   where `a.b.c.d` is the DNS IP of your host network on the VPN. See [here](https://manpage.me/index.cgi?apropos=0&q=resolv.conf&sektion=0&manpath=FreeBSD+12-CURRENT+and+Ports&arch=default&format=html) for more details.
-
-2. Make the resolv.conf immutable by issuing:
-   ```bash
-   # chattr +i resolv.conf
-   ```
-   See [here](https://manpage.me/?q=chattr) for more details
-
-3. Prevent WSL from generating resolv.conf, by adding the following to `/etc/wsl.conf`
-   ```
-   [network]
-   generateResolvConf = false
-   ```
-   See [here](https://docs.microsoft.com/en-us/windows/wsl/wsl-config) for more details.
-
-4. Restart WSL to apply the above changes
-
 ## Installation
 
 Please follow these steps if you would like your system to automatically execute the WSL2 VPN
@@ -142,11 +118,11 @@ Configuration script each time a network connect or disconnect event occurs:
    **Triggers Tab**:
 
    Add three triggers as specified below
-   
+
    _Trigger-1_:
    * Click 'New' at bottom of Window
    * Open 'Begin the task' drop-down
-   * Select 'On an Event'. 
+   * Select 'On an Event'.
    * Next we need to enter the following to trigger on the 'Connect' Event
       - Log: `Microsoft-Windows-NetworkProfile/Operational`
       - Source: `NetworkProfile`
@@ -156,7 +132,7 @@ Configuration script each time a network connect or disconnect event occurs:
    _Trigger-2_:
    * Click 'New' at bottom of Window
    * Open 'Begin the task' drop-down
-   * Select 'On an Event'. 
+   * Select 'On an Event'.
    * Next we need to enter the following to trigger on the 'Disconnect' Event
       - Log: `Microsoft-Windows-NetworkProfile/Operational`
       - Source: `NetworkProfile`
@@ -166,7 +142,7 @@ Configuration script each time a network connect or disconnect event occurs:
    _Trigger-3_:
    * Click 'New' at bottom of Window
    * Open 'Begin the task' drop-down
-   * Select 'On an Event'. 
+   * Select 'On an Event'.
    * Next we need to enter the following to trigger on the 'Hyper-V VM Connect' Event
       - Log: `System`
       - Source: `Hyper-V-VmSwitch`
