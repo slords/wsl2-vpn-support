@@ -106,7 +106,7 @@ The state file is used to cleanup created routes when:
 Please follow these steps if you would like your system to automatically execute the WSL2 VPN
 Configuration script each time a network connect or disconnect event occurs:
 
-1. Clone this repo to a `scripts` directory in the Users HOME (C:\\Users\\<username>)
+1. Clone this repo to a `scripts` directory in the Users HOME (C:\\Users\\\<username\>)
 1. From the START menu, Open 'Task Scheduler' (Will need ADMIN on Windows)
 1. Click "Create Task" on Right Sidebar and configure various tabs as described below
 
