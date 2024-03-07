@@ -152,7 +152,7 @@ Configuration script each time a network connect or disconnect event occurs:
    **Action Tab**:
    * Action: 'Start a Program'
    * Program/script: 'Powershell.exe'
-   * Add arguments: '-ExecutionPolicy Bypass -File %HOMEPATH%\\scripts\\configure-wsl-networking.ps1'
+   * Add arguments: '-ExecutionPolicy Bypass -File %USERPROFILE%\\scripts\\configure-wsl-networking.ps1'
    * Click 'OK'
 
    **Conditions Tab**:
